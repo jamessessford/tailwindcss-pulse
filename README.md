@@ -54,3 +54,6 @@ The default configuration generates the following pulse effect for each color in
 
 ...
 ```
+
+[![Build Status](https://travis-ci.org/jamessessford/tailwindcss-pulse.svg?branch=master)](https://travis-ci.org/jamessessford/tailwindcss-pulse)
+[![Coverage Status](https://coveralls.io/repos/github/jamessessford/tailwindcss-pulse/badge.svg?branch=master)](https://coveralls.io/github/jamessessford/tailwindcss-pulse?branch=master)
