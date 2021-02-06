@@ -51,9 +51,13 @@ module.exports = function() {
                 }
                 if (
                     typeof value == 'string' &&
-                    value.length > 1 &&
-                    value.charAt(0) == '#'
+                    value.length > 1
                 ) {
+                    try {
+                        Color(value)
+                    } catch (err) {
+                        return [];
+                    }
                     return [[`.${e(`pulse-${modifier}`)}`, value]];
                 }
                 return [];

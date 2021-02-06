@@ -40,12 +40,49 @@ test('The plugin will generate nothing if a dud color is passed', () => {
         theme: {
             pulse: {
                 colors: {
-                    random: 'transparent',
+                    random: 'thiscolordoesnotexist',
                 },
             },
         },
     }).then(css => {
         expect(css).toMatchCss(``);
+    });
+});
+
+test('The plugin works with named colors', () => {
+    return generatePluginCss({
+        theme: {
+            pulse: {
+                colors: {
+                    dodgerblue: 'dodgerblue',
+                },
+            },
+        },
+    }).then(css => {
+        expect(css).toMatchCss(`
+            .pulse-dodgerblue {
+                box-shadow: 0 0 0 0 rgba(30, 144, 255, 1);
+                transform: scale(1);
+                animation: pulse-dodgerblue 2s infinite
+            }
+
+            @keyframes pulse-dodgerblue {
+                0% {
+                    transform: scale(0.95);
+                    box-shadow: 0 0 0 0 rgba(30, 144, 255, 0.7)
+                }
+
+                70% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 10px rgba(30, 144, 255, 0)
+                }
+
+                100% {
+                    transform: scale(0.95);
+                    box-shadow: 0 0 0 0 rgba(30, 144, 255, 0)
+                }
+            }
+            `);
     });
 });
 
