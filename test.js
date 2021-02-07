@@ -60,51 +60,43 @@ test('The plugin works with named colors', () => {
         },
     }).then(css => {
         expect(css).toMatchCss(`
-            .pulse-dodgerblue {
-                box-shadow: 0 0 0 0 rgba(30, 144, 255, 1);
-                transform: scale(1);
-                animation: pulse-dodgerblue 2s infinite
+        .pulse-dodgerblue {
+            box-shadow: 0 0 0 0 rgba(30, 144, 255, 1);
+            transform: scale(1);
+            animation: pulse-dodgerblue 2s infinite
+          }
+
+          @keyframes pulse-dodgerblue {
+            0% {
+              transform: scale(0.95);
+              box-shadow: 0 0 0 0 rgba(30, 144, 255, 0.7)
             }
 
-            @keyframes pulse-dodgerblue {
-                0% {
-                    transform: scale(0.95);
-                    box-shadow: 0 0 0 0 rgba(30, 144, 255, 0.7)
-                }
-
-                70% {
-                    transform: scale(1);
-                    box-shadow: 0 0 0 10px rgba(30, 144, 255, 0)
-                }
-
-                100% {
-                    transform: scale(0.95);
-                    box-shadow: 0 0 0 0 rgba(30, 144, 255, 0)
-                }
+            70% {
+              transform: scale(1);
+              box-shadow: 0 0 0 10px rgba(30, 144, 255, 0)
             }
 
-            .shadow-pulse-dodgerblue {
-                filter: drop-shadow(.5rem .5rem .25rem rgba(30, 144, 255, 1));
-                transform: scale(1);
-                animation: shadow-pulse-dodgerblue 2s infinite
+            100% {
+              transform: scale(0.95);
+              box-shadow: 0 0 0 0 rgba(30, 144, 255, 0)
+            }
+          }
+
+          .shadow-pulse-dodgerblue {
+            filter: drop-shadow(0 0 0 rgba(30, 144, 255, .4));
+            animation: shadow-pulse-dodgerblue 2s infinite
+          }
+
+          @keyframes shadow-pulse-dodgerblue {
+            0% {
+              filter: drop-shadow(0 0 0 rgba(30, 144, 255, 0.6))
             }
 
-            @keyframes shadow-pulse-dodgerblue {
-                0% {
-                    transform: scale(0.95);
-                    filter: drop-shadow(.5rem .5rem .15rem rgba(30, 144, 255, 0.7))
-                }
-
-                70% {
-                    transform: scale(1);
-                    filter: drop-shadow(.5rem .5rem .75rem rgba(30, 144, 255, 0))
-                }
-
-                100% {
-                    transform: scale(0.95);
-                    filter: drop-shadow(.5rem .5rem .25rem rgba(30, 144, 255, 0))
-                }
+            50% {
+              filter: drop-shadow(0 0 .75rem rgba(30, 144, 255, 0.8))
             }
+          }
             `);
     });
 });
@@ -120,49 +112,43 @@ test('The plugin will generate a requested colour', () => {
         },
     }).then(css => {
         expect(css).toMatchCss(`
-                .pulse-black {
-                    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
-                    transform: scale(1);
-                    animation: pulse-black 2s infinite;
-                }
+        .pulse-black {
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+            transform: scale(1);
+            animation: pulse-black 2s infinite
+          }
 
-                @keyframes pulse-black {
-                    0% {
-                        transform: scale(0.95);
-                        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-                    }
-                    70% {
-                        transform: scale(1);
-                        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-                    }
-                    100% {
-                        transform: scale(0.95);
-                        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-                    }
-                }
+          @keyframes pulse-black {
+            0% {
+              transform: scale(0.95);
+              box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7)
+            }
 
-                .shadow-pulse-black {
-                    filter: drop-shadow(.5rem .5rem .25rem rgba(0, 0, 0, 1));
-                    transform: scale(1);
-                    animation: shadow-pulse-black 2s infinite
-                }
+            70% {
+              transform: scale(1);
+              box-shadow: 0 0 0 10px rgba(0, 0, 0, 0)
+            }
 
-                @keyframes shadow-pulse-black {
-                    0% {
-                        transform: scale(0.95);
-                        filter: drop-shadow(.5rem .5rem .15rem rgba(0, 0, 0, 0.7))
-                    }
+            100% {
+              transform: scale(0.95);
+              box-shadow: 0 0 0 0 rgba(0, 0, 0, 0)
+            }
+          }
 
-                    70% {
-                        transform: scale(1);
-                        filter: drop-shadow(.5rem .5rem .75rem rgba(0, 0, 0, 0))
-                    }
+          .shadow-pulse-black {
+            filter: drop-shadow(0 0 0 rgba(0, 0, 0, .4));
+            animation: shadow-pulse-black 2s infinite
+          }
 
-                    100% {
-                        transform: scale(0.95);
-                        filter: drop-shadow(.5rem .5rem .25rem rgba(0, 0, 0, 0))
-                    }
-                }
+          @keyframes shadow-pulse-black {
+            0% {
+              filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.6))
+            }
+
+            50% {
+              filter: drop-shadow(0 0 .75rem rgba(0, 0, 0, 0.8))
+            }
+          }
             `);
     });
 });
@@ -178,49 +164,43 @@ test('The plugin will generate a different colour', () => {
         },
     }).then(css => {
         expect(css).toMatchCss(`
-                .pulse-purple-300 {
-                    box-shadow: 0 0 0 0 rgba(214, 188, 250, 1);
-                    transform: scale(1);
-                    animation: pulse-purple-300 2s infinite;
-                }
+        .pulse-purple-300 {
+            box-shadow: 0 0 0 0 rgba(214, 188, 250, 1);
+            transform: scale(1);
+            animation: pulse-purple-300 2s infinite
+          }
 
-                @keyframes pulse-purple-300 {
-                    0% {
-                        transform: scale(0.95);
-                        box-shadow: 0 0 0 0 rgba(214, 188, 250, 0.7);
-                    }
-                    70% {
-                        transform: scale(1);
-                        box-shadow: 0 0 0 10px rgba(214, 188, 250, 0);
-                    }
-                    100% {
-                        transform: scale(0.95);
-                        box-shadow: 0 0 0 0 rgba(214, 188, 250, 0);
-                    }
-                }
+          @keyframes pulse-purple-300 {
+            0% {
+              transform: scale(0.95);
+              box-shadow: 0 0 0 0 rgba(214, 188, 250, 0.7)
+            }
 
-                .shadow-pulse-purple-300 {
-                    filter: drop-shadow(.5rem .5rem .25rem rgba(214, 188, 250, 1));
-                    transform: scale(1);
-                    animation: shadow-pulse-purple-300 2s infinite
-                }
+            70% {
+              transform: scale(1);
+              box-shadow: 0 0 0 10px rgba(214, 188, 250, 0)
+            }
 
-                @keyframes shadow-pulse-purple-300 {
-                    0% {
-                        transform: scale(0.95);
-                        filter: drop-shadow(.5rem .5rem .15rem rgba(214, 188, 250, 0.7))
-                    }
+            100% {
+              transform: scale(0.95);
+              box-shadow: 0 0 0 0 rgba(214, 188, 250, 0)
+            }
+          }
 
-                    70% {
-                        transform: scale(1);
-                        filter: drop-shadow(.5rem .5rem .75rem rgba(214, 188, 250, 0))
-                    }
+          .shadow-pulse-purple-300 {
+            filter: drop-shadow(0 0 0 rgba(214, 188, 250, .4));
+            animation: shadow-pulse-purple-300 2s infinite
+          }
 
-                    100% {
-                        transform: scale(0.95);
-                        filter: drop-shadow(.5rem .5rem .25rem rgba(214, 188, 250, 0))
-                    }
-                }
+          @keyframes shadow-pulse-purple-300 {
+            0% {
+              filter: drop-shadow(0 0 0 rgba(214, 188, 250, 0.6))
+            }
+
+            50% {
+              filter: drop-shadow(0 0 .75rem rgba(214, 188, 250, 0.8))
+            }
+          }
             `);
     });
 });
@@ -239,93 +219,81 @@ test('The plugin will generate colors from a map', () => {
         },
     }).then(css => {
         expect(css).toMatchCss(`
-                .pulse-map-one {
-                    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
-                    transform: scale(1);
-                    animation: pulse-map-one 2s infinite;
-                }
+        .pulse-map-one {
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+            transform: scale(1);
+            animation: pulse-map-one 2s infinite
+          }
 
-                .pulse-map-two {
-                    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
-                    transform: scale(1);
-                    animation: pulse-map-two 2s infinite;
-                }
+          .pulse-map-two {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+            transform: scale(1);
+            animation: pulse-map-two 2s infinite
+          }
 
-                @keyframes pulse-map-one {
-                    0% {
-                        transform: scale(0.95);
-                        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-                    }
-                    70% {
-                        transform: scale(1);
-                        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-                    }
-                    100% {
-                        transform: scale(0.95);
-                        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-                    }
-                }
+          @keyframes pulse-map-one {
+            0% {
+              transform: scale(0.95);
+              box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7)
+            }
 
-                @keyframes pulse-map-two {
-                    0% {
-                        transform: scale(0.95);
-                        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-                    }
-                    70% {
-                        transform: scale(1);
-                        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-                    }
-                    100% {
-                        transform: scale(0.95);
-                        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-                    }
-                }
+            70% {
+              transform: scale(1);
+              box-shadow: 0 0 0 10px rgba(0, 0, 0, 0)
+            }
 
-                .shadow-pulse-map-one {
-                    filter: drop-shadow(.5rem .5rem .25rem rgba(0, 0, 0, 1));
-                    transform: scale(1);
-                    animation: shadow-pulse-map-one 2s infinite
-                }
+            100% {
+              transform: scale(0.95);
+              box-shadow: 0 0 0 0 rgba(0, 0, 0, 0)
+            }
+          }
 
-                .shadow-pulse-map-two {
-                    filter: drop-shadow(.5rem .5rem .25rem rgba(255, 255, 255, 1));
-                    transform: scale(1);
-                    animation: shadow-pulse-map-two 2s infinite
-                }
+          @keyframes pulse-map-two {
+            0% {
+              transform: scale(0.95);
+              box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7)
+            }
 
-                @keyframes shadow-pulse-map-one {
-                    0% {
-                        transform: scale(0.95);
-                        filter: drop-shadow(.5rem .5rem .15rem rgba(0, 0, 0, 0.7))
-                    }
+            70% {
+              transform: scale(1);
+              box-shadow: 0 0 0 10px rgba(255, 255, 255, 0)
+            }
 
-                    70% {
-                        transform: scale(1);
-                        filter: drop-shadow(.5rem .5rem .75rem rgba(0, 0, 0, 0))
-                    }
+            100% {
+              transform: scale(0.95);
+              box-shadow: 0 0 0 0 rgba(255, 255, 255, 0)
+            }
+          }
 
-                    100% {
-                        transform: scale(0.95);
-                        filter: drop-shadow(.5rem .5rem .25rem rgba(0, 0, 0, 0))
-                    }
-                }
+          .shadow-pulse-map-one {
+            filter: drop-shadow(0 0 0 rgba(0, 0, 0, .4));
+            animation: shadow-pulse-map-one 2s infinite
+          }
 
-                @keyframes shadow-pulse-map-two {
-                    0% {
-                        transform: scale(0.95);
-                        filter: drop-shadow(.5rem .5rem .15rem rgba(255, 255, 255, 0.7))
-                    }
+          .shadow-pulse-map-two {
+            filter: drop-shadow(0 0 0 rgba(255, 255, 255, .4));
+            animation: shadow-pulse-map-two 2s infinite
+          }
 
-                    70% {
-                        transform: scale(1);
-                        filter: drop-shadow(.5rem .5rem .75rem rgba(255, 255, 255, 0))
-                    }
+          @keyframes shadow-pulse-map-one {
+            0% {
+              filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.6))
+            }
 
-                    100% {
-                        transform: scale(0.95);
-                        filter: drop-shadow(.5rem .5rem .25rem rgba(255, 255, 255, 0))
-                    }
-                }
+            50% {
+              filter: drop-shadow(0 0 .75rem rgba(0, 0, 0, 0.8))
+            }
+          }
+
+          @keyframes shadow-pulse-map-two {
+            0% {
+              filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0.6))
+            }
+
+            50% {
+              filter: drop-shadow(0 0 .75rem rgba(255, 255, 255, 0.8))
+            }
+          }
             `);
     });
 });

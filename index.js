@@ -49,8 +49,7 @@ module.exports = function() {
             return [
                 `${modifier}`,
                 {
-                    filter: "drop-shadow(.5rem .5rem .25rem rgba(" + rgb[0] + ", " + rgb[1] +", " + rgb[2] + ", 1))",
-                    transform: "scale(1)",
+                    filter: "drop-shadow(0 0 0 rgba(" + rgb[0] + ", " + rgb[1] +", " + rgb[2] + ", .4))",
                     animation: `${shadowModifier} 2s infinite`
                 }
             ];
@@ -63,16 +62,10 @@ module.exports = function() {
                 `@keyframes ${shadowModifier}`,
                 {
                     "0%": {
-                        transform: "scale(0.95)",
-                        filter: "drop-shadow(.5rem .5rem .15rem rgba(" + rgb[0] + ", " + rgb[1] +", " + rgb[2] + ", 0.7))"
+                        filter: "drop-shadow(0 0 0 rgba(" + rgb[0] + ", " + rgb[1] +", " + rgb[2] + ", 0.6))"
                     },
-                    "70%": {
-                        transform: "scale(1)",
-                        filter: "drop-shadow(.5rem .5rem .75rem rgba(" + rgb[0] + ", " + rgb[1] +", " + rgb[2] + ", 0))"
-                    },
-                    "100%": {
-                        transform: "scale(0.95)",
-                        filter: "drop-shadow(.5rem .5rem .25rem rgba(" + rgb[0] + ", " + rgb[1] +", " + rgb[2] + ", 0))"
+                    "50%": {
+                        filter: "drop-shadow(0 0 .75rem rgba(" + rgb[0] + ", " + rgb[1] +", " + rgb[2] + ", 0.8))"
                     }
                 }
             ];

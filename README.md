@@ -34,21 +34,38 @@ The default configuration generates the following pulse effect for each color in
 .pulse-purple-300 {
     box-shadow: 0 0 0 0 rgba(214, 188, 250, 1);
     transform: scale(1);
-    animation: pulse-purple-300 2s infinite;
+    animation: pulse-purple-300 2s infinite
 }
 
 @keyframes pulse-purple-300 {
     0% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(214, 188, 250, 0.7);
+        box-shadow: 0 0 0 0 rgba(214, 188, 250, 0.7)
     }
+
     70% {
         transform: scale(1);
-        box-shadow: 0 0 0 10px rgba(214, 188, 250, 0);
+        box-shadow: 0 0 0 10px rgba(214, 188, 250, 0)
     }
+
     100% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(214, 188, 250, 0);
+        box-shadow: 0 0 0 0 rgba(214, 188, 250, 0)
+    }
+}
+
+.shadow-pulse-purple-300 {
+    filter: drop-shadow(0 0 0 rgba(214, 188, 250, .4));
+    animation: shadow-pulse-purple-300 2s infinite
+}
+
+@keyframes shadow-pulse-purple-300 {
+    0% {
+        filter: drop-shadow(0 0 0 rgba(214, 188, 250, 0.6))
+    }
+
+    50% {
+        filter: drop-shadow(0 0 .75rem rgba(214, 188, 250, 0.8))
     }
 }
 
