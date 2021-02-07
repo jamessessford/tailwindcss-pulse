@@ -49,18 +49,14 @@ module.exports = function() {
                         return [`.${e(`pulse-${modifier}-${m}`)}`, v];
                     });
                 }
-                if (
-                    typeof value == 'string' &&
-                    value.length > 1
-                ) {
-                    try {
-                        Color(value)
-                    } catch (err) {
-                        return [];
-                    }
-                    return [[`.${e(`pulse-${modifier}`)}`, value]];
+
+                try {
+                    Color(value)
+                } catch (err) {
+                    return [];
                 }
-                return [];
+                return [[`.${e(`pulse-${modifier}`)}`, value]];
+
             })
             .value();
 
