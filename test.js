@@ -82,6 +82,29 @@ test('The plugin works with named colors', () => {
                     box-shadow: 0 0 0 0 rgba(30, 144, 255, 0)
                 }
             }
+
+            .shadow-pulse-dodgerblue {
+                filter: drop-shadow(.5rem .5rem .25rem rgba(30, 144, 255, 1));
+                transform: scale(1);
+                animation: shadow-pulse-dodgerblue 2s infinite
+            }
+
+            @keyframes shadow-pulse-dodgerblue {
+                0% {
+                    transform: scale(0.95);
+                    filter: drop-shadow(.5rem .5rem .15rem rgba(30, 144, 255, 0.7))
+                }
+
+                70% {
+                    transform: scale(1);
+                    filter: drop-shadow(.5rem .5rem .75rem rgba(30, 144, 255, 0))
+                }
+
+                100% {
+                    transform: scale(0.95);
+                    filter: drop-shadow(.5rem .5rem .25rem rgba(30, 144, 255, 0))
+                }
+            }
             `);
     });
 });
@@ -117,6 +140,29 @@ test('The plugin will generate a requested colour', () => {
                         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
                     }
                 }
+
+                .shadow-pulse-black {
+                    filter: drop-shadow(.5rem .5rem .25rem rgba(0, 0, 0, 1));
+                    transform: scale(1);
+                    animation: shadow-pulse-black 2s infinite
+                }
+
+                @keyframes shadow-pulse-black {
+                    0% {
+                        transform: scale(0.95);
+                        filter: drop-shadow(.5rem .5rem .15rem rgba(0, 0, 0, 0.7))
+                    }
+
+                    70% {
+                        transform: scale(1);
+                        filter: drop-shadow(.5rem .5rem .75rem rgba(0, 0, 0, 0))
+                    }
+
+                    100% {
+                        transform: scale(0.95);
+                        filter: drop-shadow(.5rem .5rem .25rem rgba(0, 0, 0, 0))
+                    }
+                }
             `);
     });
 });
@@ -150,6 +196,29 @@ test('The plugin will generate a different colour', () => {
                     100% {
                         transform: scale(0.95);
                         box-shadow: 0 0 0 0 rgba(214, 188, 250, 0);
+                    }
+                }
+
+                .shadow-pulse-purple-300 {
+                    filter: drop-shadow(.5rem .5rem .25rem rgba(214, 188, 250, 1));
+                    transform: scale(1);
+                    animation: shadow-pulse-purple-300 2s infinite
+                }
+
+                @keyframes shadow-pulse-purple-300 {
+                    0% {
+                        transform: scale(0.95);
+                        filter: drop-shadow(.5rem .5rem .15rem rgba(214, 188, 250, 0.7))
+                    }
+
+                    70% {
+                        transform: scale(1);
+                        filter: drop-shadow(.5rem .5rem .75rem rgba(214, 188, 250, 0))
+                    }
+
+                    100% {
+                        transform: scale(0.95);
+                        filter: drop-shadow(.5rem .5rem .25rem rgba(214, 188, 250, 0))
                     }
                 }
             `);
@@ -209,6 +278,52 @@ test('The plugin will generate colors from a map', () => {
                     100% {
                         transform: scale(0.95);
                         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+                    }
+                }
+
+                .shadow-pulse-map-one {
+                    filter: drop-shadow(.5rem .5rem .25rem rgba(0, 0, 0, 1));
+                    transform: scale(1);
+                    animation: shadow-pulse-map-one 2s infinite
+                }
+
+                .shadow-pulse-map-two {
+                    filter: drop-shadow(.5rem .5rem .25rem rgba(255, 255, 255, 1));
+                    transform: scale(1);
+                    animation: shadow-pulse-map-two 2s infinite
+                }
+
+                @keyframes shadow-pulse-map-one {
+                    0% {
+                        transform: scale(0.95);
+                        filter: drop-shadow(.5rem .5rem .15rem rgba(0, 0, 0, 0.7))
+                    }
+
+                    70% {
+                        transform: scale(1);
+                        filter: drop-shadow(.5rem .5rem .75rem rgba(0, 0, 0, 0))
+                    }
+
+                    100% {
+                        transform: scale(0.95);
+                        filter: drop-shadow(.5rem .5rem .25rem rgba(0, 0, 0, 0))
+                    }
+                }
+
+                @keyframes shadow-pulse-map-two {
+                    0% {
+                        transform: scale(0.95);
+                        filter: drop-shadow(.5rem .5rem .15rem rgba(255, 255, 255, 0.7))
+                    }
+
+                    70% {
+                        transform: scale(1);
+                        filter: drop-shadow(.5rem .5rem .75rem rgba(255, 255, 255, 0))
+                    }
+
+                    100% {
+                        transform: scale(0.95);
+                        filter: drop-shadow(.5rem .5rem .25rem rgba(255, 255, 255, 0))
                     }
                 }
             `);

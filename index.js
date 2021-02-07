@@ -42,6 +42,42 @@ module.exports = function() {
             ];
         }
 
+        function returnShadowColorPair([modifier, value]) {
+
+            const rgb = Color(value).rgb().array();
+            const shadowModifier = modifier.replace(/^\./, '');
+            return [
+                `${modifier}`,
+                {
+                    filter: "drop-shadow(.5rem .5rem .25rem rgba(" + rgb[0] + ", " + rgb[1] +", " + rgb[2] + ", 1))",
+                    transform: "scale(1)",
+                    animation: `${shadowModifier} 2s infinite`
+                }
+            ];
+        }
+
+        function returnShadowKeyFrames([modifier, value]) {
+            const rgb = Color(value).rgb().array();
+            const shadowModifier = modifier.replace(/^\./, '');
+            return [
+                `@keyframes ${shadowModifier}`,
+                {
+                    "0%": {
+                        transform: "scale(0.95)",
+                        filter: "drop-shadow(.5rem .5rem .15rem rgba(" + rgb[0] + ", " + rgb[1] +", " + rgb[2] + ", 0.7))"
+                    },
+                    "70%": {
+                        transform: "scale(1)",
+                        filter: "drop-shadow(.5rem .5rem .75rem rgba(" + rgb[0] + ", " + rgb[1] +", " + rgb[2] + ", 0))"
+                    },
+                    "100%": {
+                        transform: "scale(0.95)",
+                        filter: "drop-shadow(.5rem .5rem .25rem rgba(" + rgb[0] + ", " + rgb[1] +", " + rgb[2] + ", 0))"
+                    }
+                }
+            ];
+        }
+
         const allTheColors = _(pulseBgColors)
             .flatMap((value, modifier) => {
                 if (typeof value == 'object') {
@@ -60,6 +96,24 @@ module.exports = function() {
             })
             .value();
 
+        const allTheShadowColors = _(pulseBgColors)
+            .flatMap((value, modifier) => {
+                if (typeof value == 'object') {
+                    return _.map(value, (v, m) => {
+                        return [`.${e(`shadow-pulse-${modifier}-${m}`)}`, v];
+                    });
+                }
+
+                try {
+                    Color(value)
+                } catch (err) {
+                    return [];
+                }
+                return [[`.${e(`shadow-pulse-${modifier}`)}`, value]];
+
+            })
+            .value();
+
         const components = _.fromPairs(
             _.concat(
                 _.map(allTheColors, (color, index) => {
@@ -67,6 +121,12 @@ module.exports = function() {
                 }),
                 _.map(allTheColors, (color, index) => {
                     return returnKeyFrames(color);
+                }),
+                _.map(allTheShadowColors, (color, index) => {
+                    return returnShadowColorPair(color);
+                }),
+                _.map(allTheShadowColors, (color, index) => {
+                    return returnShadowKeyFrames(color);
                 })
             )
         );
